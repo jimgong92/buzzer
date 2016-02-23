@@ -1,0 +1,27 @@
+{
+  "name": "buzzer",
+  "version": "0.1.0",
+  "description": "Pings your app for a set window",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimgong92/buzzer.git"
+  },
+  "keywords": [
+    "ping",
+    "buzzer",
+    "node"
+  ],
+  "author": "Jimmy Gong <gong.jim@gmail.com> (http://jimmyg.xyz)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jimgong92/buzzer/issues"
+  },
+  "homepage": "https://github.com/jimgong92/buzzer#readme",
+  "dependencies": {
+    "node-schedule": "^1.0.0"
+  }
+}
