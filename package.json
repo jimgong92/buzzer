@@ -22,6 +22,13 @@
   },
   "homepage": "https://github.com/jimgong92/buzzer#readme",
   "dependencies": {
-    "node-schedule": "^1.0.0"
+    "node-schedule": "^1.0.0",
+    "superagent": "^1.7.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "express": "^4.13.4",
+    "mocha": "^2.4.5",
+    "supertest": "^1.2.0"
   }
 }
