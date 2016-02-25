@@ -16,8 +16,9 @@ function Buzzer(config) {
   this._interval = config.interval || (1000 * 60 * 20);
   this._startHour = config.startHour || 7;
   this._startMinute = config.startMinute || 30;
-  this._endHour = config.endHour || 12;
-  this._endMinute = config.endMinute || 40;
+  this._endHour = config.endHour || 1;
+  this._endMinute = config.endMinute || 00;
+  this._endpoint = config.endpoint;
   this._buzzSchedule = null;
   if (!this._endpoint) {
     throw new Error('No endpoint specified');
