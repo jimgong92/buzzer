@@ -19,6 +19,7 @@ function Buzzer(config) {
   this._endHour = config.endHour || 1;
   this._endMinute = config.endMinute || 00;
   this._endpoint = config.endpoint;
+  this._callback = config.callback;
   this._buzzSchedule = null;
   if (!this._endpoint) {
     throw new Error('No endpoint specified');
@@ -27,13 +28,14 @@ function Buzzer(config) {
 
 Buzzer.prototype = {
   buzz: function() {
+    var requestCB = function(err, res) {
+      if (this._callback !== undefined) {
+        this._callback(err, res);
+      }
+    }.bind(this);
     request
       .get(this._endpoint)
-      .end(function(err, res) {
-        if (this._callback !== undefined) {
-          this._callback(err, res);
-        }
-      });
+      .end(requestCB);
   },
   activate: function() {
     var rule = new schedule.RecurrenceRule();

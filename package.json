@@ -4,7 +4,7 @@
   "description": "Pings your app for a set window",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test"
+    "test": "mocha --timeout=10000 test"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "chai": "^3.5.0",
     "express": "^4.13.4",
     "mocha": "^2.4.5",
+    "morgan": "^1.7.0",
     "supertest": "^1.2.0"
   }
 }
