@@ -1,25 +1,25 @@
 # Buzzer
 Pings given URL(s) for a given duration and interval. 
 
-- ** Heroku ** This is particularly useful for cheap hosting on Heroku, just open up a free-tier dyno, have another host run the buzzer against the dyno's ip, and you're set to have that dyno up for the maximum amount of time allowed (18 hours)
+- **Heroku**: This is particularly useful for cheap hosting on Heroku, just open up a free-tier dyno, have another host run the buzzer against the dyno's ip, and you're set to have that dyno up for the maximum amount of time allowed (18 hours)
 
 ## Configuration
-- ** endpoint ** Endpoint to be pinged by buzzer instance
-- ** interval ** Interval (in milliseconds) between pings 
+- **endpoint**: Endpoint to be pinged by buzzer instance
+- **interval**: Interval (in milliseconds) between pings 
   - Defaults to 20 minutes (1000 * 60 * 20 ms)
-- ** startHour ** The hour the buzzing window starts (out of 23)
+- **startHour**: The hour the buzzing window starts (out of 23)
   - Defaults to 7 
-- ** startMinute ** The minute the buzzing window starts (out of 59)
+- **startMinute**: The minute the buzzing window starts (out of 59)
   - Defaults to 30
-- ** startSecond ** The second the buzzing window starts (out of 59)
+- **startSecond**: The second the buzzing window starts (out of 59)
   - Defaults to 0
-- ** endHour ** The hour the buzzing window ends (out of 23)
+- **endHour**: The hour the buzzing window ends (out of 23)
   - Defaults to 1 
-- ** endMinute ** The minute the buzzing window ends (out of 59)
+- **endMinute**: The minute the buzzing window ends (out of 59)
   - Defaults to 0
-- ** endSecond ** The second the buzzing window ends (out of 59)
+- **endSecond**: The second the buzzing window ends (out of 59)
   - Defaults to 0
-- ** callback ** Callback to be triggered on every ping
+- **callback**: Callback to be triggered on every ping
   - Parameters: `(error, response)`
 
 #### Example Config
