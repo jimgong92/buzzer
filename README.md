@@ -1,5 +1,5 @@
 # Buzzer
-[![Version npm](https://img.shields.io/npm/v/buzzer.svg?style=flat-square)](https://www.npmjs.com/package/buzzer)[![Dependencies](https://img.shields.io/david/jimgong92/buzzer.svg?style=flat-square)](https://david-dm.org/jimgong92/buzzer)
+[![Version npm](https://img.shields.io/npm/v/buzzer.svg?style=flat-square)](https://www.npmjs.com/package/buzzer)[![Build Status](https://img.shields.io/travis/jimgong92/buzzer/master.svg?style=flat-square)](https://travis-ci.org/jimgong92/buzzer)[![Dependencies](https://img.shields.io/david/jimgong92/buzzer.svg?style=flat-square)](https://david-dm.org/jimgong92/buzzer)
 
 Pings given URL(s) for a given duration and interval. 
 
