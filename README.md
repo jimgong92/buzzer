@@ -1,9 +1,6 @@
 # Buzzer
 [![Version npm](https://img.shields.io/npm/v/buzzer.svg?style=flat-square)](https://www.npmjs.com/package/buzzer)[![Dependencies](https://img.shields.io/david/jimgong92/buzzer.svg?style=flat-square)](https://david-dm.org/jimgong92/buzzer)
 
-
-[![NPM](https://nodei.co/npm/buzzer.png?downloads=true&downloadRank=true)](https://nodei.co/npm/buzzer/)
-
 Pings given URL(s) for a given duration and interval. 
 
 - **Heroku**: This is particularly useful for cheap hosting on Heroku, just open up a free-tier dyno, have another host run the buzzer against the dyno's ip, and you're set to have that dyno awake for the maximum amount of time allowed per day (18 hours)
