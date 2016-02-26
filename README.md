@@ -1,4 +1,7 @@
 # Buzzer
+[![Version npm](https://img.shields.io/npm/v/winston.svg?style=flat-square)](https://www.npmjs.com/package/winston)[![Dependencies](https://img.shields.io/david/winstonjs/winston.svg?style=flat-square)](https://david-dm.org/winstonjs/winston)
+
+
 [![NPM](https://nodei.co/npm/buzzer.png?downloads=true&downloadRank=true)](https://nodei.co/npm/buzzer/)
 
 Pings given URL(s) for a given duration and interval. 
