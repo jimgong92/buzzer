@@ -1,4 +1,6 @@
 # Buzzer
+[![NPM](https://nodei.co/npm/buzzer.png?downloads=true&downloadRank=true)](https://nodei.co/npm/buzzer/)
+
 Pings given URL(s) for a given duration and interval. 
 
 - **Heroku**: This is particularly useful for cheap hosting on Heroku, just open up a free-tier dyno, have another host run the buzzer against the dyno's ip, and you're set to have that dyno awake for the maximum amount of time allowed per day (18 hours)
