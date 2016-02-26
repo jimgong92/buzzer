@@ -2,16 +2,9 @@ var expect = require('chai').expect;
 var Buzzer = require('../../index');
 
 var buzzer; // Capture buzzer state
+var callCount = 0;
 
 module.exports = function(suite) {
-  // beforeEach(function() {
-  //   suite.app.listen(suite.app.get('port'), function() {
-  //     console.log('Listening on port %d', suite.app.get('port'));
-  //   });
-  // });
-  // afterEach(function() {
-  //   suite.app.close();
-  // });
   describe('Buzzer', function() {
     it('should fail if no endpoint is passed', function(done) {
       var buzzerConfig = {};
@@ -49,15 +42,53 @@ module.exports = function(suite) {
           expect(res.statusCode).to.equal(200);
           done();
         }
-      })
+      });
       buzzer.buzz();
     });
-    xit('should activate manually (upon invoking activate method)', function(done) {
-      
-      // done();
+    it('should not successfully ping a non-existent endpoint', function(done) {
+      buzzer = new Buzzer({
+        endpoint: 'localhost:8912',
+        callback: function(err, res) {
+          expect(err).to.exist;
+          expect(err.syscall).to.equal('connect');
+          expect(err.code).to.equal('ECONNREFUSED');
+          done();
+        }
+      });
+      buzzer.buzz();
     });
-    xit('should deactivate upon invoking deactivate method', function(done) {
-      done();
+    it('should activate manually (upon invoking activate method)', function(done) {
+      var now = new Date();
+      buzzer = new Buzzer({
+        interval: 200,
+        startHour: now.getHours(),
+        startMinute: now.getMinutes() + (now.getSeconds >= 59 ? 1 : 0),
+        startSecond: now.getSeconds() + 1,
+        endpoint: suite.ENDPOINT,
+        callback: function(err, res) {
+          expect(res.statusCode).to.equal(200);
+          if (++callCount === 5) {
+            // buzzer.deactivate();
+            done();
+          }
+        }
+      });
+      buzzer.activate();
+    });
+    it('should deactivate upon invoking deactivate method', function(done) {
+      var count = callCount;
+
+      // Verify buzzer schedule still up
+      setTimeout(function(){
+        expect(callCount).to.be.above(count);
+        buzzer.deactivate();
+        deactivatedCount = callCount;
+        // Verify buzzer schedule deactivated
+        setTimeout(function() {
+          expect(deactivatedCount - callCount).to.be.at.most(1);
+          done();
+        }, 400);
+      }, 400);
     });
   });
 };

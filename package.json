@@ -4,7 +4,7 @@
   "description": "Pings your app for a set window",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --timeout=10000 test"
+    "test": "mocha --timeout=120000 test"
   },
   "repository": {
     "type": "git",

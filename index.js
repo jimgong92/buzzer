@@ -16,8 +16,10 @@ function Buzzer(config) {
   this._interval = config.interval || (1000 * 60 * 20);
   this._startHour = config.startHour || 7;
   this._startMinute = config.startMinute || 30;
+  this._startSecond = config.startSecond || 0;
   this._endHour = config.endHour || 1;
-  this._endMinute = config.endMinute || 00;
+  this._endMinute = config.endMinute || 0;
+  this._endSecond = config.endSecond || 0;
   this._endpoint = config.endpoint;
   this._callback = config.callback;
   this._buzzSchedule = null;
@@ -37,23 +39,35 @@ Buzzer.prototype = {
       .get(this._endpoint)
       .end(requestCB);
   },
-  activate: function() {
-    var rule = new schedule.RecurrenceRule();
-    rule.hour = this._startHour;
-    rule.minute = this._startMinute;
-    var j = schedule.scheduleJob(rule, function() {
+  _activateStartRule: function() {
+    var startRule = new schedule.RecurrenceRule();
+    startRule.hour = this._startHour;
+    startRule.minute = this._startMinute;
+    startRule.second = this._startSecond;
+    this._startJ = schedule.scheduleJob(startRule, function() {
       this.buzz();
-      this._buzzSchedule = setInterval(this.buzz, this._interval);
-    });
+      this._buzzSchedule = setInterval(this.buzz.bind(this), this._interval);
+    }.bind(this));
+  },
+  _activateEndRule: function() {
+    var endRule = new schedule.RecurrenceRule();
+    endRule.hour = this._endHour;
+    endRule.minute = this._endMinute;
+    endRule.second = this._endSecond;
+    this._endJ = schedule.scheduleJob(endRule, this._deactivateBuzzSchedule.bind(this));
+  },
+  _deactivateBuzzSchedule: function() {
+    clearInterval(this._buzzSchedule);
+    this._buzzSchedule = null;
+  },
+  activate: function() {
+    this._activateStartRule();
+    this._activateEndRule();
   },
   deactivate: function() {
-    var rule = new schedule.RecurrenceRule();
-    rule.hour = this._endHour;
-    rule.minute = this._endMinute;
-    var j = schedule.scheduleJob(rule, function() {
-      clearInterval(this._buzzSchedule);
-      this._buzzSchedule = null;
-    });
+    this._deactivateBuzzSchedule();
+    this._startJ.cancel();
+    this._endJ.cancel();
   }
 };
 

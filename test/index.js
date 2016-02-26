@@ -13,8 +13,6 @@ app.listen(app.get('port'), function() {
   console.log('Listening on port %d', app.get('port'));
 });
 
-console.log(app);
-
 var SUITE = {
   APP: app,
   ENDPOINT: 'http://localhost:8001'
