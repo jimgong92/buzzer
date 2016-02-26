@@ -3,6 +3,9 @@ Pings given URL(s) for a given duration and interval.
 
 - **Heroku**: This is particularly useful for cheap hosting on Heroku, just open up a free-tier dyno, have another host run the buzzer against the dyno's ip, and you're set to have that dyno up for the maximum amount of time allowed (18 hours)
 
+## Installation
+`npm install --save buzzer`
+
 ## Configuration
 - **endpoint**: Endpoint to be pinged by buzzer instance
 - **interval**: Interval (in milliseconds) between pings 
@@ -67,9 +70,6 @@ app.listen(app.get('port'), function() {
 });
 
 ```
-
-## Installation
-`npm install --save buzzer`
 
 ## Contribute
 There is literally nothing special you need to do to get this up and running and contribute. Clone it down, install the dependencies, and go.
