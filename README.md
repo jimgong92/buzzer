@@ -28,7 +28,7 @@ Pings given URL(s) for a given duration and interval.
   - Parameters: `(error, response)`
 
 #### Example Config
-```
+```javascript
 import Buzzer from 'buzzer';
 const buzzerConfig = {
   endpoint: 'http://my-free-dyno.herokuapp.com',
@@ -53,7 +53,7 @@ buzzer.activate();
 ## Basic Example
 On a separate host, add a buzzer (or multiple) to maintain your free dyno(s). This example uses the default values to open a buzzing window from 7:30AM to 1AM
 
-```
+```javascript
 import express from 'express';
 import Buzzer from 'buzzer';
 const app = express();
